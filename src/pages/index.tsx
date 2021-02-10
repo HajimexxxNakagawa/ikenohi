@@ -22,9 +22,17 @@ const Home: React.FC<PageProps<GatsbyTypes.HomeQueryQuery>> = ({ data }) => {
           <ul className="article-list">
             {posts.map(({ node }: any) => {
               return (
-                <li key={node.slug}>
-                  <ArticlePreview article={node} />
-                </li>
+                <>
+                  <li key={node.slug}>
+                    <ArticlePreview article={node} />
+                  </li>
+                  <li key={node.slug}>
+                    <ArticlePreview article={node} />
+                  </li>
+                  <li key={node.slug}>
+                    <ArticlePreview article={node} />
+                  </li>
+                </>
               )
             })}
           </ul>

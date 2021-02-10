@@ -280,7 +280,7 @@
             "type": "Symbol",
             "validations": [
               {
-                "in": ["general", "javascript", "static-sites"]
+                "in": ["育", "働", "衣", "食", "住"]
               }
             ]
           }

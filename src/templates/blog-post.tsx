@@ -21,7 +21,11 @@ const BlogPostTemplate: React.FC<
   return (
     <Layout>
       <div style={{ background: '#fff' }}>
-        <Helmet title={`${postTitle.title} | ${siteTitle}`} />
+        <Helmet title={`${postTitle} | ${siteTitle}`} />
+        <div className={blogPostStyles.titleWrap}>
+          <h1 className={blogPostStyles.title}>{postTitle}</h1>
+          <p>{publishDate}</p>
+        </div>
         <div className={heroStyles.hero}>
           <Img
             className={heroStyles.heroImage}
@@ -30,14 +34,6 @@ const BlogPostTemplate: React.FC<
           />
         </div>
         <div className={blogPostStyles.wrapper}>
-          <h1 className="section-headline">{postTitle}</h1>
-          <p
-            style={{
-              display: 'block',
-            }}
-          >
-            {publishDate}
-          </p>
           <div
             dangerouslySetInnerHTML={{
               __html: postBody.childMarkdownRemark.html,

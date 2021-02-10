@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Avenir';
+  font-family: 'Hiragino Sans';
   font-weight: 400;
   font-style: normal;
   src: url('/avenir-400.woff2') format('woff2');
@@ -7,11 +7,12 @@
 }
 
 body {
-  font-family: 'Avenir', Tahoma, Arial, Helvetica, sans-serif;
+  font-family: 'Hiragino Sans', 'Avenir', 'Helvetica Neue', Arial,
+    'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
   font-size: 1em;
   line-height: 1.65;
   color: #373f49;
-  background: #eee;
+  background: #fff;
   margin: 0;
 }
 

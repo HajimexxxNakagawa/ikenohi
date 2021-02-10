@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const styles = require('../css/navigation.module.css')
+const styles = require('../css/footer.module.css')
 
-export default () => (
-  <nav className={styles.container}>
-    <span>イケの日</span>
+const Footer = () => (
+  <nav role="navigation">
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
         <Link to="/">Home</Link>
@@ -16,3 +15,5 @@ export default () => (
     </ul>
   </nav>
 )
+
+export default Footer

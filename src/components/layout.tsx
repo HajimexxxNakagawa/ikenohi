@@ -1,6 +1,7 @@
 import React from 'react'
 import '../css/base.css'
 import Container from './container'
+import Footer from './Footer'
 import Navigation from './navigation'
 
 const Template: React.FC = ({ children }) => {
@@ -12,6 +13,7 @@ const Template: React.FC = ({ children }) => {
     <Container>
       <Navigation />
       {children}
+      <Footer />
     </Container>
   )
 }
