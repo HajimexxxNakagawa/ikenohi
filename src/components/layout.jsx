@@ -1,10 +1,9 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import base from './base.css'
+import '../css/base.css'
 import Container from './container'
 import Navigation from './navigation'
 
-const Template = ({ location, children }) => {
+const Template = ({ children }) => {
   if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
     rootPath = __PATH_PREFIX__ + `/`
   }
