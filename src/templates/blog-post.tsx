@@ -1,40 +1,46 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { PageProps } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 
-import heroStyles from '../css/hero.module.css'
-import blogPostStyles from './blog-post.module.css'
+const heroStyles = require('../css/hero.module.css')
+const blogPostStyles = require('./blog-post.module.css')
 
-const BlogPostTemplate = ({ data }) => {
-  const post = get(data, 'contentfulBlogPost')
+const BlogPostTemplate: React.FC<
+  PageProps<GatsbyTypes.BlogPostBySlugQuery>
+> = ({ data }) => {
+  const postTitle = get(data, 'contentfulBlogPost.title')
+  const postBody = get(data, 'contentfulBlogPost.body')
+  const publishDate = get(data, 'contentfulBlogPost.publishDate')
+  const heroImage = get(data, 'contentfulBlogPost.heroImage')
   const siteTitle = get(data, 'site.siteMetadata.title')
 
   return (
     <Layout>
       <div style={{ background: '#fff' }}>
-        <Helmet title={`${post.title} | ${siteTitle}`} />
+        <Helmet title={`${postTitle.title} | ${siteTitle}`} />
         <div className={heroStyles.hero}>
           <Img
             className={heroStyles.heroImage}
-            alt={post.title}
-            fluid={post.heroImage.fluid}
+            alt={postTitle}
+            fluid={heroImage.fluid}
           />
         </div>
         <div className={blogPostStyles.wrapper}>
-          <h1 className="section-headline">{post.title}</h1>
+          <h1 className="section-headline">{postTitle}</h1>
           <p
             style={{
               display: 'block',
             }}
           >
-            {post.publishDate}
+            {publishDate}
           </p>
           <div
             dangerouslySetInnerHTML={{
-              __html: post.body.childMarkdownRemark.html,
+              __html: postBody.childMarkdownRemark.html,
             }}
           />
         </div>
@@ -57,7 +63,7 @@ export const pageQuery = graphql`
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
         fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid
         }
       }
       body {

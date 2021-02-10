@@ -1,6 +1,27 @@
+'use strict'
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+
+require('ts-node').register({
+  compilerOptions: {
+    module: 'commonjs',
+    target: 'esnext',
+  },
+})
+
+require('./src/__generated__/gatsby-types')
+
+const {
+  createPages,
+  onCreateNode,
+  createSchemaCustomization,
+} = require('./src/gatsby-node/index')
+
+exports.createPages = createPages
+exports.onCreateNode = onCreateNode
+exports.createSchemaCustomization = createSchemaCustomization
 
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -33,6 +54,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
+    `gatsby-plugin-typegen`,
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,

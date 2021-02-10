@@ -1,9 +1,9 @@
 import React from 'react'
 import Img from 'gatsby-image'
 
-import styles from '../css/hero.module.css'
+const styles = require('../css/hero.module.css')
 
-export default ({ data }) => (
+const Hero = ({ data }: any) => (
   <div className={styles.hero}>
     <Img
       className={styles.heroImage}
@@ -17,3 +17,4 @@ export default ({ data }) => (
     </div>
   </div>
 )
+export default Hero
