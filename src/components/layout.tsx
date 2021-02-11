@@ -1,21 +1,18 @@
 import React from 'react'
-import '../css/base.css'
-import Container from './container'
 import Footer from './Footer'
 import Navigation from './navigation'
+import '../css/base.css'
 
-const Template: React.FC = ({ children }) => {
-  // if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-  //   rootPath = __PATH_PREFIX__ + `/`
-  // }
+const Container: React.FC = ({ children }) => (
+  <div style={{ maxWidth: 1180, margin: '0 auto' }}>{children}</div>
+)
 
-  return (
-    <Container>
-      <Navigation />
-      {children}
-      <Footer />
-    </Container>
-  )
-}
+const Layout: React.FC = ({ children }) => (
+  <Container>
+    <Navigation />
+    {children}
+    <Footer />
+  </Container>
+)
 
-export default Template
+export default Layout

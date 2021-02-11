@@ -10,26 +10,23 @@ import ArticlePreview from '../components/article-preview'
 const Home: React.FC<PageProps<GatsbyTypes.HomeQueryQuery>> = ({ data }) => {
   const siteTitle = get(data, 'site.siteMetadata.title')
   const posts = get(data, 'allContentfulBlogPost.edges')
-  const [author] = get(data, 'allContentfulPerson.edges')
+  // const [author] = get(data, 'allContentfulPerson.edges')
 
   return (
     <Layout>
       <div style={{ background: '#fff' }}>
         <Helmet title={siteTitle} />
-        <Hero data={author.node} />
+        <Hero />
         <div className="wrapper">
-          <h2 className="section-headline">Recent articles</h2>
+          <h2 className="section-headline">Recent articles</h2>{' '}
           <ul className="article-list">
             {posts.map(({ node }: any) => {
               return (
                 <>
-                  <li key={node.slug}>
+                  <li className="article-item" key={node.slug}>
                     <ArticlePreview article={node} />
                   </li>
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                  <li key={node.slug}>
+                  <li className="article-item" key={node.slug}>
                     <ArticlePreview article={node} />
                   </li>
                 </>

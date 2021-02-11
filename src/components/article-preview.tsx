@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import Tag from './Tag'
 
 const styles = require('../css/article-preview.module.css')
 
@@ -20,9 +21,9 @@ const ArticlePreview = ({ article }: any) => (
     />
     {article.tags &&
       article.tags.map((tag: any) => (
-        <p className={styles.tag} key={tag}>
+        <Tag label={tag} key={tag}>
           {tag}
-        </p>
+        </Tag>
       ))}
   </div>
 )

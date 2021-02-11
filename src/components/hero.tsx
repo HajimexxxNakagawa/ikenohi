@@ -1,20 +1,16 @@
 import React from 'react'
-import Img from 'gatsby-image'
 
 const styles = require('../css/hero.module.css')
 
-const Hero = ({ data }: any) => (
+const width = screen.width
+
+const Hero = () => (
   <div className={styles.hero}>
-    <Img
-      className={styles.heroImage}
-      alt={data.name}
-      fluid={data.heroImage.fluid}
-    />
-    <div className={styles.heroDetails}>
-      <h3 className={styles.heroHeadline}>{data.name}</h3>
-      <p className={styles.heroTitle}>{data.title}</p>
-      <p>{data.shortBio.shortBio}</p>
-    </div>
+    <h1 className={styles.heroText}>
+      イケてるケの日を
+      {width < 500 && <br />}
+      はじめよう
+    </h1>
   </div>
 )
 export default Hero

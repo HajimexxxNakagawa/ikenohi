@@ -50,17 +50,23 @@ module.exports = {
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
-    'gatsby-transformer-remark',
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'noopener noreferrer',
+            },
+          },
+        ],
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-remark-external-links',
-      options: {
-        target: '_blank',
-        rel: 'noopener noreferrer',
-      },
-    },
     `gatsby-plugin-typegen`,
     {
       resolve: 'gatsby-source-contentful',
