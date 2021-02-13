@@ -38,40 +38,8 @@ a {
   padding: 5vmin 0;
 }
 
-/**
- * article grid
- */
-.article-list {
-  background-color: #f6f6f6;
-  margin: 0;
-  padding: 4px;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-.article-item {
-  padding: 6px 2px;
-}
-
-/**
- *
- */
 .section-headline {
   padding: 0 0 0.4em 0;
   margin: 0 0 5vmin 0;
   border-bottom: 1px solid #ddd;
-}
-
-/**
- *
- */
-.list-inline {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.list-inline li {
-  display: inline-block;
 }

@@ -3,9 +3,9 @@ import { graphql } from 'gatsby'
 import { PageProps } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
-import Hero from '../components/hero'
-import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
+import Hero from '../components/Hero'
+import Layout from '../components/Layout'
+import ArticleList from '../components/ArticleList'
 
 const Home: React.FC<PageProps<GatsbyTypes.HomeQueryQuery>> = ({ data }) => {
   const siteTitle = get(data, 'site.siteMetadata.title')
@@ -18,21 +18,8 @@ const Home: React.FC<PageProps<GatsbyTypes.HomeQueryQuery>> = ({ data }) => {
         <Helmet title={siteTitle} />
         <Hero />
         <div className="wrapper">
-          <h2 className="section-headline">Recent articles</h2>{' '}
-          <ul className="article-list">
-            {posts.map(({ node }: any) => {
-              return (
-                <>
-                  <li className="article-item" key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                  <li className="article-item" key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                </>
-              )
-            })}
-          </ul>
+          <h2 className="section-headline">Recent articles</h2>
+          <ArticleList posts={posts} />
         </div>
       </div>
     </Layout>
@@ -68,28 +55,28 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid
-            }
-          }
-        }
-      }
-    }
+    # allContentfulPerson(
+    #   filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
+    # ) {
+    #   edges {
+    #     node {
+    #       name
+    #       shortBio {
+    #         shortBio
+    #       }
+    #       title
+    #       heroImage: image {
+    #         fluid(
+    #           maxWidth: 1180
+    #           maxHeight: 480
+    #           resizingBehavior: PAD
+    #           background: "rgb:000000"
+    #         ) {
+    #           ...GatsbyContentfulFluid
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
   }
 `

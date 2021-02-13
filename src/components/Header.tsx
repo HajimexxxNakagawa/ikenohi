@@ -2,6 +2,13 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
+const HeaderBase = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 2rem;
+`
+
 const Navigation = styled.ul`
   display: flex;
   justify-content: center;
@@ -9,9 +16,8 @@ const Navigation = styled.ul`
   padding: 0;
   margin: 0;
   height: 20vh;
-  max-height: 104px;
+  max-height: 56px;
   font-size: 1.25em;
-  background-color: #333;
 `
 
 const NavigationItem = styled.li`
@@ -19,12 +25,13 @@ const NavigationItem = styled.li`
   align-items: center;
   margin: 0 1em;
   a {
-    color: #fafafa;
+    color: currentColor;
   }
 `
 
-const Footer = () => (
-  <nav role="navigation">
+export default () => (
+  <HeaderBase>
+    <span>イケの日</span>
     <Navigation>
       <NavigationItem>
         <Link to="/">Home</Link>
@@ -33,7 +40,5 @@ const Footer = () => (
         <Link to="/blog/">Blog</Link>
       </NavigationItem>
     </Navigation>
-  </nav>
+  </HeaderBase>
 )
-
-export default Footer

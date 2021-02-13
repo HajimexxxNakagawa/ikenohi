@@ -6506,6 +6506,12 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.stripMetadata'
   | 'pluginCreator.pluginOptions.defaultQuality'
   | 'pluginCreator.pluginOptions.failOnError'
+  | 'pluginCreator.pluginOptions.displayName'
+  | 'pluginCreator.pluginOptions.fileName'
+  | 'pluginCreator.pluginOptions.minify'
+  | 'pluginCreator.pluginOptions.namespace'
+  | 'pluginCreator.pluginOptions.transpileTemplateLiterals'
+  | 'pluginCreator.pluginOptions.pure'
   | 'pluginCreator.pluginOptions.spaceId'
   | 'pluginCreator.pluginOptions.accessToken'
   | 'pluginCreator.pluginOptions.path'
@@ -6711,6 +6717,12 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.stripMetadata'
   | 'pluginOptions.defaultQuality'
   | 'pluginOptions.failOnError'
+  | 'pluginOptions.displayName'
+  | 'pluginOptions.fileName'
+  | 'pluginOptions.minify'
+  | 'pluginOptions.namespace'
+  | 'pluginOptions.transpileTemplateLiterals'
+  | 'pluginOptions.pure'
   | 'pluginOptions.spaceId'
   | 'pluginOptions.accessToken'
   | 'pluginOptions.path'
@@ -6835,6 +6847,12 @@ type SitePluginPluginOptions = {
   readonly stripMetadata: Maybe<Scalars['Boolean']>;
   readonly defaultQuality: Maybe<Scalars['Int']>;
   readonly failOnError: Maybe<Scalars['Boolean']>;
+  readonly displayName: Maybe<Scalars['Boolean']>;
+  readonly fileName: Maybe<Scalars['Boolean']>;
+  readonly minify: Maybe<Scalars['Boolean']>;
+  readonly namespace: Maybe<Scalars['String']>;
+  readonly transpileTemplateLiterals: Maybe<Scalars['Boolean']>;
+  readonly pure: Maybe<Scalars['Boolean']>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly accessToken: Maybe<Scalars['String']>;
   readonly path: Maybe<Scalars['String']>;
@@ -6852,6 +6870,12 @@ type SitePluginPluginOptionsFilterInput = {
   readonly stripMetadata: Maybe<BooleanQueryOperatorInput>;
   readonly defaultQuality: Maybe<IntQueryOperatorInput>;
   readonly failOnError: Maybe<BooleanQueryOperatorInput>;
+  readonly displayName: Maybe<BooleanQueryOperatorInput>;
+  readonly fileName: Maybe<BooleanQueryOperatorInput>;
+  readonly minify: Maybe<BooleanQueryOperatorInput>;
+  readonly namespace: Maybe<StringQueryOperatorInput>;
+  readonly transpileTemplateLiterals: Maybe<BooleanQueryOperatorInput>;
+  readonly pure: Maybe<BooleanQueryOperatorInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
   readonly accessToken: Maybe<StringQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
@@ -6970,9 +6994,6 @@ type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 type HomeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulBlogPost: { readonly edges: ReadonlyArray<{ readonly node: (
         Pick<ContentfulBlogPost, 'title' | 'slug' | 'publishDate' | 'tags'>
         & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
-      ) }> }, readonly allContentfulPerson: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<ContentfulPerson, 'name' | 'title'>
-        & { readonly shortBio: Maybe<Pick<contentfulPersonShortBioTextNode, 'shortBio'>>, readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
       ) }> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;

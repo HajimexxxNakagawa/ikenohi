@@ -4,10 +4,40 @@ import { PageProps } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
+import styled from 'styled-components'
 
-const heroStyles = require('../css/hero.module.css')
-const blogPostStyles = require('./blog-post.module.css')
+const TitleWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 0;
+`
+const ImgWrap = styled.div`
+  position: relative;
+  text-align: center;
+  margin: 3rem auto;
+  padding: 1px 0;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px -10px,
+    rgba(0, 0, 0, 0.22) 0px 18px 36px -18px;
+`
+
+const ContentsWrap = styled.div`
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 5vmin 0;
+`
+
+const HeroImg = styled(Img)`
+  height: 61.8vh;
+  object-fit: cover;
+  width: 100%;
+  @media (max-width: 600px) {
+    height: 30.9vh;
+  }
+`
 
 const BlogPostTemplate: React.FC<
   PageProps<GatsbyTypes.BlogPostBySlugQuery>
@@ -22,24 +52,20 @@ const BlogPostTemplate: React.FC<
     <Layout>
       <div style={{ background: '#fff' }}>
         <Helmet title={`${postTitle} | ${siteTitle}`} />
-        <div className={blogPostStyles.titleWrap}>
-          <h1 className={blogPostStyles.title}>{postTitle}</h1>
+        <TitleWrap>
+          <h1 style={{ marginBottom: '0' }}>{postTitle}</h1>
           <p>{publishDate}</p>
-        </div>
-        <div className={heroStyles.hero}>
-          <Img
-            className={heroStyles.heroImage}
-            alt={postTitle}
-            fluid={heroImage.fluid}
-          />
-        </div>
-        <div className={blogPostStyles.wrapper}>
+        </TitleWrap>
+        <ImgWrap>
+          <HeroImg alt={postTitle} fluid={heroImage.fluid} />
+        </ImgWrap>
+        <ContentsWrap>
           <div
             dangerouslySetInnerHTML={{
               __html: postBody.childMarkdownRemark.html,
             }}
           />
-        </div>
+        </ContentsWrap>
       </div>
     </Layout>
   )

@@ -1,5 +1,14 @@
 import React from 'react'
-const styles = require('../css/article-preview.module.css')
+import styled from 'styled-components'
+
+const TagBase = styled.span`
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.33333rem;
+  line-height: 1;
+  border-radius: 2px;
+  margin-right: 0.5em;
+`
 
 type TagType = '衣' | '食' | '住' | '育' | '働'
 
@@ -24,12 +33,11 @@ const theme = {
 // }
 
 const Tag: React.FC<TagProps> = ({ label }) => (
-  <span
-    className={styles.tag}
+  <TagBase
     style={{ color: `${theme[label]}`, border: `2px solid ${theme[label]}` }}
   >
     {label}
-  </span>
+  </TagBase>
 )
 
 export default Tag

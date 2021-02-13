@@ -1,18 +1,27 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { ILink } from '../utils/ILink'
 import Img from 'gatsby-image'
 import Tag from './Tag'
+import styled from 'styled-components'
 
-const styles = require('../css/article-preview.module.css')
+const Card = styled.div`
+  background-color: #fff;
+  padding: 8px 8px 0 8px;
+  margin: 2px;
+  height: calc(100% - 2px);
+`
+
+const Title = styled.h3`
+  font-size: 1.2em;
+  margin-bottom: 0;
+`
 
 const ArticlePreview = ({ article }: any) => (
-  <div className={styles.preview}>
+  <Card>
     <Img alt="" fluid={article.heroImage.fluid} />
-    <h3 className={styles.previewTitle}>
-      <Link to={`/blog/${article.slug}`} style={{ textDecoration: 'none' }}>
-        {article.title}
-      </Link>
-    </h3>
+    <Title>
+      <ILink to={`/blog/${article.slug}`}>{article.title}</ILink>
+    </Title>
     <small>{article.publishDate}</small>
     <div
       dangerouslySetInnerHTML={{
@@ -25,6 +34,6 @@ const ArticlePreview = ({ article }: any) => (
           {tag}
         </Tag>
       ))}
-  </div>
+  </Card>
 )
 export default ArticlePreview

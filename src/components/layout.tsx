@@ -1,11 +1,13 @@
 import React from 'react'
 import Footer from './Footer'
-import Navigation from './navigation'
+import Navigation from './Header'
 import '../css/base.css'
+import styled from 'styled-components'
 
-const Container: React.FC = ({ children }) => (
-  <div style={{ maxWidth: 1180, margin: '0 auto' }}>{children}</div>
-)
+const Container = styled.div`
+  max-width: 1180;
+  margin: 0 auto;
+`
 
 const Layout: React.FC = ({ children }) => (
   <Container>
