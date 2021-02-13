@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const ListBase = styled.ul`
   background-color: #f6f6f6;
   margin: 0;
-  padding: 4px;
+  padding: 0 2px 8px 2px;
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

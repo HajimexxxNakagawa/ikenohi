@@ -43,3 +43,15 @@ a {
   margin: 0 0 5vmin 0;
   border-bottom: 1px solid #ddd;
 }
+
+.hero-image {
+  height: 61.8vh;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .hero-image {
+    height: 30.9vh;
+  }
+}

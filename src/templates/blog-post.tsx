@@ -30,15 +30,6 @@ const ContentsWrap = styled.div`
   padding: 5vmin 0;
 `
 
-const HeroImg = styled(Img)`
-  height: 61.8vh;
-  object-fit: cover;
-  width: 100%;
-  @media (max-width: 600px) {
-    height: 30.9vh;
-  }
-`
-
 const BlogPostTemplate: React.FC<
   PageProps<GatsbyTypes.BlogPostBySlugQuery>
 > = ({ data }) => {
@@ -57,7 +48,7 @@ const BlogPostTemplate: React.FC<
           <p>{publishDate}</p>
         </TitleWrap>
         <ImgWrap>
-          <HeroImg alt={postTitle} fluid={heroImage.fluid} />
+          <Img alt={postTitle} fluid={heroImage.fluid} className="hero-image" />
         </ImgWrap>
         <ContentsWrap>
           <div
