@@ -6,7 +6,7 @@ import { ILink } from '../utils/ILink'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/Layout'
-import Tag from '../components/Tag'
+import Tag, { TagType } from '../components/Tag'
 import Toc from '../components/Toc'
 import styled from 'styled-components'
 
@@ -79,7 +79,7 @@ const BlogPostTemplate: React.FC<
       </ContentsWrap>
       <div style={{ textAlign: 'center' }}>
         {tags &&
-          tags.map((tag: any) => (
+          tags.map((tag: TagType) => (
             <Tag label={tag} key={tag}>
               {tag}
             </Tag>

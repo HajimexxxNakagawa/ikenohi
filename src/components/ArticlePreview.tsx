@@ -1,7 +1,7 @@
 import React from 'react'
 import { ILink } from '../utils/ILink'
 import Img from 'gatsby-image'
-import Tag from './Tag'
+import Tag, { TagType } from './Tag'
 import styled from 'styled-components'
 
 const Card = styled.div`
@@ -29,7 +29,7 @@ const ArticlePreview = ({ article }: any) => (
       />
     </ILink>
     {article.tags &&
-      article.tags.map((tag: any) => (
+      article.tags.map((tag: TagType) => (
         <Tag label={tag} key={tag}>
           {tag}
         </Tag>

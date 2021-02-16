@@ -10,9 +10,9 @@ const TagBase = styled.span`
   margin-right: 0.5em;
 `
 
-type TagType = '衣' | '食' | '住' | '育' | '働'
+export type TagType = '衣' | '食' | '住' | '育' | '働'
 
-interface TagProps {
+export interface TagProps {
   label: TagType
 }
 
