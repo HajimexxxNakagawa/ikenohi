@@ -23,7 +23,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ posts }) => (
   <ListBase>
     {posts.map(({ node }: any) => {
       return (
-        <ArticleItem className="article-item" key={node.slug}>
+        <ArticleItem key={node.slug}>
           <ArticlePreview article={node} />
         </ArticleItem>
       )

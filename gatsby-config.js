@@ -48,7 +48,7 @@ module.exports = {
   siteMetadata: {
     title: 'イケの日　ーイケてるケの日をはじめよう',
   },
-  pathPrefix: '/gatsby-contentful-starter',
+  pathPrefix: '/',
   plugins: [
     {
       resolve: `gatsby-transformer-remark`,
