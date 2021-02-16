@@ -2,11 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { PageProps } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { ILink } from '../utils/ILink'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
+import BlogEnd from '../components/BlogEnd'
 import Layout from '../components/Layout'
-import Tag, { TagType } from '../components/Tag'
 import Toc from '../components/Toc'
 import styled from 'styled-components'
 
@@ -77,15 +76,7 @@ const BlogPostTemplate: React.FC<
           }}
         />
       </ContentsWrap>
-      <div style={{ textAlign: 'center' }}>
-        {tags &&
-          tags.map((tag: TagType) => (
-            <Tag label={tag} key={tag}>
-              {tag}
-            </Tag>
-          ))}
-        <ILink to="/">Topへ</ILink>
-      </div>
+      <BlogEnd tags={tags} />
     </Layout>
   )
 }
