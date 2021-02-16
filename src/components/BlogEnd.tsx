@@ -7,6 +7,12 @@ const BlogEndBase = styled.div`
   margin: 3rem auto;
 `
 
+const TagArea = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 interface BlogEndProps {
   tags: TagType[]
 }
@@ -14,18 +20,18 @@ interface BlogEndProps {
 const BlogEnd = ({ tags }: BlogEndProps) => (
   <BlogEndBase>
     {/* share button */}
-    <div style={{ textAlign: 'center' }}>
-      <h3>Tags</h3>
+    <TagArea>
+      <h3>Tag： </h3>
       {tags &&
         tags.map((tag) => (
           <Tag label={tag} key={tag}>
             {tag}
           </Tag>
         ))}
-      <p>
-        <ILink to="/">Topへ</ILink>
-      </p>
-    </div>
+    </TagArea>
+    <p style={{ textAlign: 'center' }}>
+      <ILink to="/">Topへ</ILink>
+    </p>
     {/* about me */}
   </BlogEndBase>
 )

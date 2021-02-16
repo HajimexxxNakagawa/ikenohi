@@ -2,6 +2,11 @@ import React from 'react'
 import { ColoredILink } from '../utils/ILink'
 import styled from 'styled-components'
 
+const TocBase = styled.div`
+  background-color: #f6f6f6;
+  padding: 0.2rem 2rem;
+`
+
 type Headline = { value: string }
 
 interface TocProps {
@@ -10,7 +15,7 @@ interface TocProps {
 }
 
 const Toc = ({ headlines, path }: TocProps) => (
-  <div>
+  <TocBase>
     <p>
       <strong>目次</strong>
     </p>
@@ -21,7 +26,7 @@ const Toc = ({ headlines, path }: TocProps) => (
         </ColoredILink>
       ))}
     </ul>
-  </div>
+  </TocBase>
 )
 
 export default Toc
