@@ -10,7 +10,6 @@ import ArticleList from '../components/ArticleList'
 const Home: React.FC<PageProps<GatsbyTypes.HomeQueryQuery>> = ({ data }) => {
   const siteTitle = get(data, 'site.siteMetadata.title')
   const posts = get(data, 'allContentfulBlogPost.edges')
-  // const [author] = get(data, 'allContentfulPerson.edges')
 
   return (
     <Layout>
@@ -55,28 +54,5 @@ export const pageQuery = graphql`
         }
       }
     }
-    # allContentfulPerson(
-    #   filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    # ) {
-    #   edges {
-    #     node {
-    #       name
-    #       shortBio {
-    #         shortBio
-    #       }
-    #       title
-    #       heroImage: image {
-    #         fluid(
-    #           maxWidth: 1180
-    #           maxHeight: 480
-    #           resizingBehavior: PAD
-    #           background: "rgb:000000"
-    #         ) {
-    #           ...GatsbyContentfulFluid
-    #         }
-    #       }
-    #     }
-    #   }
-    # }
   }
 `

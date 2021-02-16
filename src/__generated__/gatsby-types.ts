@@ -7023,8 +7023,11 @@ type BlogPostBySlugQueryVariables = Exact<{
 
 
 type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly contentfulBlogPost: Maybe<(
-    Pick<ContentfulBlogPost, 'title' | 'publishDate'>
-    & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+    Pick<ContentfulBlogPost, 'title' | 'publishDate' | 'tags'>
+    & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<(
+        Pick<MarkdownRemark, 'html'>
+        & { readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MarkdownHeading, 'value'>>>> }
+      )> }> }
   )> };
 
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
