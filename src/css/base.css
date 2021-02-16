@@ -9,7 +9,7 @@
 body {
   font-family: 'Hiragino Sans', 'Avenir', 'Helvetica Neue', Arial,
     'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
   line-height: 1.65;
   color: #373f49;
   background: #fff;
@@ -66,5 +66,11 @@ a {
 @media (max-width: 600px) {
   .hero-image {
     height: 30.9vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-image {
+    height: 40vh;
   }
 }
