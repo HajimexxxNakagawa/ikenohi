@@ -5,6 +5,7 @@ import styled from 'styled-components'
 const Navigation = styled.ul`
   display: flex;
   justify-content: center;
+  align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -15,8 +16,6 @@ const Navigation = styled.ul`
 `
 
 const NavigationItem = styled.li`
-  display: inline-flex;
-  align-items: center;
   margin: 0 1em;
   a {
     color: #fafafa;

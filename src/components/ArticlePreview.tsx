@@ -16,6 +16,7 @@ const Title = styled.h3`
   margin-bottom: 0;
 `
 
+// TODO
 const ArticlePreview = ({ article }: any) => (
   <Card>
     <ILink to={`/blog/${article.slug}`}>
@@ -29,11 +30,8 @@ const ArticlePreview = ({ article }: any) => (
       />
     </ILink>
     {article.tags &&
-      article.tags.map((tag: TagType) => (
-        <Tag label={tag} key={tag}>
-          {tag}
-        </Tag>
-      ))}
+      article.tags.map((tag: TagType) => <Tag label={tag} key={tag} />)}
   </Card>
 )
+
 export default ArticlePreview

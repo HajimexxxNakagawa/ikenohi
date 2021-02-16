@@ -29,7 +29,7 @@ const NavigationItem = styled.li`
   }
 `
 
-export default () => (
+const Header = () => (
   <HeaderBase>
     <span>イケの日</span>
     <Navigation>
@@ -42,3 +42,5 @@ export default () => (
     </Navigation>
   </HeaderBase>
 )
+
+export default Header

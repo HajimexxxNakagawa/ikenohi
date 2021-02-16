@@ -10,31 +10,26 @@ const TagBase = styled.span`
   margin-right: 0.5em;
 `
 
-export type TagType = '衣' | '食' | '住' | '育' | '働'
+const TagObj = {
+  衣: { theme: '#73B66D', link: '/clothing' },
+  食: { theme: '#DB5C00', link: '/food' },
+  住: { theme: '#D0BEA2', link: '/housing' },
+  育: { theme: '#16697A', link: '/child-care' },
+  働: { theme: '#C86B59', link: '/work' },
+} as const
+
+export type TagType = keyof typeof TagObj
 
 export interface TagProps {
   label: TagType
 }
 
-const theme = {
-  衣: '#73B66D',
-  食: '#DB5C00',
-  住: '#D0BEA2',
-  育: '#16697A',
-  働: '#C86B59',
-}
-
-// const link = {
-//   衣: '/clothing',
-//   食: '/food',
-//   住: '/housing',
-//   育: '/child-care',
-//   働: '/work',
-// }
-
-const Tag: React.FC<TagProps> = ({ label }) => (
+const Tag = ({ label }: TagProps) => (
   <TagBase
-    style={{ color: `${theme[label]}`, border: `2px solid ${theme[label]}` }}
+    style={{
+      color: `${TagObj[label].theme}`,
+      border: `2px solid ${TagObj[label].theme}`,
+    }}
   >
     {label}
   </TagBase>

@@ -15,11 +15,12 @@ const ArticleItem = styled.li`
   padding: 6px 2px;
 `
 
+// TODO
 interface ArticleListProps {
   posts: any
 }
 
-const ArticleList: React.FC<ArticleListProps> = ({ posts }) => (
+const ArticleList = ({ posts }: ArticleListProps) => (
   <ListBase>
     {posts.map(({ node }: any) => {
       return (
