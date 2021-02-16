@@ -6,6 +6,8 @@ import { ILink } from '../utils/ILink'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/Layout'
+import Tag from '../components/Tag'
+import Toc from '../components/Toc'
 import styled from 'styled-components'
 
 const TitleWrap = styled.div`
@@ -43,13 +45,17 @@ const ContentsWrap = styled.div`
 
 const BlogPostTemplate: React.FC<
   PageProps<GatsbyTypes.BlogPostBySlugQuery>
-> = ({ data }) => {
+> = ({ data, location }) => {
   const postTitle = get(data, 'contentfulBlogPost.title')
   const postBody = get(data, 'contentfulBlogPost.body')
   const publishDate = get(data, 'contentfulBlogPost.publishDate')
   const heroImage = get(data, 'contentfulBlogPost.heroImage')
+  const tags = get(data, 'contentfulBlogPost.tags')
   const siteTitle = get(data, 'site.siteMetadata.title')
 
+  console.log('postBody:', postBody)
+  console.log('tags:', tags)
+  console.log('location:', location)
   return (
     <Layout>
       <Helmet title={`${postTitle} | ${siteTitle}`} />
@@ -61,6 +67,10 @@ const BlogPostTemplate: React.FC<
         <Img alt={postTitle} fluid={heroImage.fluid} className="hero-image" />
       </ImgWrap>
       <ContentsWrap>
+        <Toc
+          headlines={postBody.childMarkdownRemark.headings}
+          path={location.pathname}
+        />
         <div
           dangerouslySetInnerHTML={{
             __html: postBody.childMarkdownRemark.html,
@@ -68,6 +78,12 @@ const BlogPostTemplate: React.FC<
         />
       </ContentsWrap>
       <div style={{ textAlign: 'center' }}>
+        {tags &&
+          tags.map((tag: any) => (
+            <Tag label={tag} key={tag}>
+              {tag}
+            </Tag>
+          ))}
         <ILink to="/">Topへ</ILink>
       </div>
     </Layout>
@@ -91,9 +107,13 @@ export const pageQuery = graphql`
           ...GatsbyContentfulFluid
         }
       }
+      tags
       body {
         childMarkdownRemark {
           html
+          headings(depth: h2) {
+            value
+          }
         }
       }
     }
