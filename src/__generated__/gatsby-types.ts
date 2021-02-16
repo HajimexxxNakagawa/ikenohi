@@ -7030,11 +7030,6 @@ type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe
       )> }> }
   )> };
 
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
-
 type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -7042,6 +7037,11 @@ type HomeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick
         Pick<ContentfulBlogPost, 'title' | 'slug' | 'publishDate' | 'tags'>
         & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
       ) }> } };
+
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

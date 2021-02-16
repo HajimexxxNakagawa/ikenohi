@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 const HeroBase = styled.div`
   position: relative;
-  text-align: center;
   margin: 3rem auto;
   padding: 1px 0;
   width: 90%;
@@ -12,15 +11,21 @@ const HeroBase = styled.div`
     rgba(0, 0, 0, 0.22) 0px 18px 36px -18px;
 `
 
-const width = screen.width
+const HeroTitle = styled.h1`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+`
 
 const Hero = () => (
   <HeroBase>
-    <h1>
-      イケてるケの日を
-      {width < 500 && <br />}
-      はじめよう
-    </h1>
+    <HeroTitle>
+      <span>イケてるケの日を</span>
+      <span>はじめよう</span>
+    </HeroTitle>
   </HeroBase>
 )
 
