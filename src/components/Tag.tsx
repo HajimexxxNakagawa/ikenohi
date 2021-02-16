@@ -1,15 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const TagBase = styled.span`
-  text-decoration: none;
-  display: inline-block;
-  padding: 0.33333rem;
-  line-height: 1;
-  border-radius: 2px;
-  margin-right: 0.5em;
-`
-
 const TagObj = {
   衣: { theme: '#73B66D', link: '/clothing' },
   食: { theme: '#DB5C00', link: '/food' },
@@ -36,3 +27,12 @@ const Tag = ({ label }: TagProps) => (
 )
 
 export default Tag
+
+const TagBase = styled.span`
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.33333rem;
+  line-height: 1;
+  border-radius: 2px;
+  margin-right: 0.5em;
+`

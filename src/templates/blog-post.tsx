@@ -9,39 +9,6 @@ import Layout from '../components/Layout'
 import Toc from '../components/Toc'
 import styled from 'styled-components'
 
-const TitleWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 3rem 0;
-  text-align: center;
-`
-const ImgWrap = styled.div`
-  position: relative;
-  text-align: center;
-  margin: 3rem auto;
-  padding: 1px 0;
-  width: 90%;
-  max-width: 700px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px -10px,
-    rgba(0, 0, 0, 0.22) 0px 18px 36px -18px;
-`
-
-const ContentsWrap = styled.div`
-  max-width: 650px;
-  margin: 0 auto;
-  padding: 5vmin 0;
-  width: 90%;
-  a {
-    text-decoration: none;
-    transition: 0.3s;
-    color: #2b98b0;
-    &:hover {
-      color: #54c5de;
-    }
-  }
-`
-
 const BlogPostTemplate: React.FC<
   PageProps<GatsbyTypes.BlogPostBySlugQuery>
 > = ({ data, location }) => {
@@ -52,9 +19,6 @@ const BlogPostTemplate: React.FC<
   const tags = get(data, 'contentfulBlogPost.tags')
   const siteTitle = get(data, 'site.siteMetadata.title')
 
-  console.log('postBody:', postBody)
-  console.log('tags:', tags)
-  console.log('location:', location)
   return (
     <Layout>
       <Helmet title={`${postTitle} | ${siteTitle}`} />
@@ -107,6 +71,39 @@ export const pageQuery = graphql`
           }
         }
       }
+    }
+  }
+`
+
+const TitleWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 0;
+  text-align: center;
+`
+const ImgWrap = styled.div`
+  position: relative;
+  text-align: center;
+  margin: 3rem auto;
+  padding: 1px 0;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px -10px,
+    rgba(0, 0, 0, 0.22) 0px 18px 36px -18px;
+`
+
+const ContentsWrap = styled.div`
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 5vmin 0;
+  width: 90%;
+  a {
+    text-decoration: none;
+    transition: 0.3s;
+    color: #2b98b0;
+    &:hover {
+      color: #54c5de;
     }
   }
 `

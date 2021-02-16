@@ -3,16 +3,6 @@ import Tag, { TagType } from './Tag'
 import { ILink } from '../utils/ILink'
 import styled from 'styled-components'
 
-const BlogEndBase = styled.div`
-  margin: 3rem auto;
-`
-
-const TagArea = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
 interface BlogEndProps {
   tags: TagType[]
 }
@@ -32,3 +22,13 @@ const BlogEnd = ({ tags }: BlogEndProps) => (
 )
 
 export default BlogEnd
+
+const BlogEndBase = styled.div`
+  margin: 3rem auto;
+`
+
+const TagArea = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`

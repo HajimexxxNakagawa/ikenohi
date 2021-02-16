@@ -4,18 +4,6 @@ import Img from 'gatsby-image'
 import Tag, { TagType } from './Tag'
 import styled from 'styled-components'
 
-const Card = styled.div`
-  background-color: #fff;
-  padding: 8px 8px 0 8px;
-  margin: 2px;
-  height: calc(100% - 2px);
-`
-
-const Title = styled.h3`
-  font-size: 1.2em;
-  margin-bottom: 0;
-`
-
 // TODO
 const ArticlePreview = ({ article }: any) => (
   <Card>
@@ -35,3 +23,15 @@ const ArticlePreview = ({ article }: any) => (
 )
 
 export default ArticlePreview
+
+const Card = styled.div`
+  background-color: #fff;
+  padding: 8px 8px 0 8px;
+  margin: 2px;
+  height: calc(100% - 2px);
+`
+
+const Title = styled.h3`
+  font-size: 1.2em;
+  margin-bottom: 0;
+`

@@ -1,6 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const Hero = () => (
+  <HeroBase>
+    <HeroTitle>
+      <span>イケてるケの日を</span>
+      <span>はじめよう</span>
+    </HeroTitle>
+  </HeroBase>
+)
+
+export default Hero
+
 const HeroBase = styled.div`
   position: relative;
   margin: 3rem auto;
@@ -19,14 +30,3 @@ const HeroTitle = styled.h1`
     flex-direction: column;
   }
 `
-
-const Hero = () => (
-  <HeroBase>
-    <HeroTitle>
-      <span>イケてるケの日を</span>
-      <span>はじめよう</span>
-    </HeroTitle>
-  </HeroBase>
-)
-
-export default Hero

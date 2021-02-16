@@ -2,6 +2,22 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
+const Header = () => (
+  <HeaderBase>
+    <span>イケの日</span>
+    <Navigation>
+      <NavigationItem>
+        <Link to="/">Home</Link>
+      </NavigationItem>
+      <NavigationItem>
+        <Link to="/about/">About</Link>
+      </NavigationItem>
+    </Navigation>
+  </HeaderBase>
+)
+
+export default Header
+
 const HeaderBase = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -28,19 +44,3 @@ const NavigationItem = styled.li`
     color: currentColor;
   }
 `
-
-const Header = () => (
-  <HeaderBase>
-    <span>イケの日</span>
-    <Navigation>
-      <NavigationItem>
-        <Link to="/">Home</Link>
-      </NavigationItem>
-      <NavigationItem>
-        <Link to="/about/">About</Link>
-      </NavigationItem>
-    </Navigation>
-  </HeaderBase>
-)
-
-export default Header
