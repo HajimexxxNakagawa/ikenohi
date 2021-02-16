@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { PageProps } from 'gatsby'
 import { Helmet } from 'react-helmet'
+import { ILink } from '../utils/ILink'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/Layout'
@@ -12,6 +13,7 @@ const TitleWrap = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 3rem 0;
+  text-align: center;
 `
 const ImgWrap = styled.div`
   position: relative;
@@ -28,6 +30,15 @@ const ContentsWrap = styled.div`
   max-width: 650px;
   margin: 0 auto;
   padding: 5vmin 0;
+  width: 90%;
+  a {
+    text-decoration: none;
+    transition: 0.3s;
+    color: #2b98b0;
+    &:hover {
+      color: #54c5de;
+    }
+  }
 `
 
 const BlogPostTemplate: React.FC<
@@ -41,22 +52,23 @@ const BlogPostTemplate: React.FC<
 
   return (
     <Layout>
-      <div style={{ background: '#fff' }}>
-        <Helmet title={`${postTitle} | ${siteTitle}`} />
-        <TitleWrap>
-          <h1 style={{ marginBottom: '0' }}>{postTitle}</h1>
-          <p>{publishDate}</p>
-        </TitleWrap>
-        <ImgWrap>
-          <Img alt={postTitle} fluid={heroImage.fluid} className="hero-image" />
-        </ImgWrap>
-        <ContentsWrap>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: postBody.childMarkdownRemark.html,
-            }}
-          />
-        </ContentsWrap>
+      <Helmet title={`${postTitle} | ${siteTitle}`} />
+      <TitleWrap>
+        <h1 style={{ marginBottom: '0' }}>{postTitle}</h1>
+        <p>{publishDate}</p>
+      </TitleWrap>
+      <ImgWrap>
+        <Img alt={postTitle} fluid={heroImage.fluid} className="hero-image" />
+      </ImgWrap>
+      <ContentsWrap>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: postBody.childMarkdownRemark.html,
+          }}
+        />
+      </ContentsWrap>
+      <div style={{ textAlign: 'center' }}>
+        <ILink to="/">Topへ</ILink>
       </div>
     </Layout>
   )

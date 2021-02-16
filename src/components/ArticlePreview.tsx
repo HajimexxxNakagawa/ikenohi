@@ -18,16 +18,16 @@ const Title = styled.h3`
 
 const ArticlePreview = ({ article }: any) => (
   <Card>
-    <Img alt="" fluid={article.heroImage.fluid} />
-    <Title>
-      <ILink to={`/blog/${article.slug}`}>{article.title}</ILink>
-    </Title>
-    <small>{article.publishDate}</small>
-    <div
-      dangerouslySetInnerHTML={{
-        __html: article.description.childMarkdownRemark.html,
-      }}
-    />
+    <ILink to={`/blog/${article.slug}`}>
+      <Img alt="" fluid={article.heroImage.fluid} />
+      <Title>{article.title}</Title>
+      <small>{article.publishDate}</small>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: article.description.childMarkdownRemark.html,
+        }}
+      />
+    </ILink>
     {article.tags &&
       article.tags.map((tag: any) => (
         <Tag label={tag} key={tag}>
