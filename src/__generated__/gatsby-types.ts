@@ -7007,27 +7007,6 @@ type WebPOptions = {
   readonly quality: Maybe<Scalars['Int']>;
 };
 
-type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HomeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulBlogPost: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<ContentfulBlogPost, 'title' | 'slug' | 'publishDate' | 'tags'>
-        & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
-      ) }> } };
-
-type BlogPostBySlugQueryVariables = Exact<{
-  slug: Scalars['String'];
-}>;
-
-
-type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly contentfulBlogPost: Maybe<(
-    Pick<ContentfulBlogPost, 'title' | 'publishDate' | 'tags'>
-    & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<(
-        Pick<MarkdownRemark, 'html'>
-        & { readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MarkdownHeading, 'value'>>>> }
-      )> }> }
-  )> };
-
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
 type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
@@ -7117,5 +7096,26 @@ type GatsbyContentfulSizes_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio
 type GatsbyContentfulSizes_withWebpFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
 type GatsbyContentfulSizes_withWebp_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HomeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulBlogPost: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<ContentfulBlogPost, 'title' | 'slug' | 'publishDate' | 'tags'>
+        & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+      ) }> } };
+
+type BlogPostBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly contentfulBlogPost: Maybe<(
+    Pick<ContentfulBlogPost, 'title' | 'publishDate' | 'tags'>
+    & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<(
+        Pick<MarkdownRemark, 'html'>
+        & { readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MarkdownHeading, 'value'>>>> }
+      )> }> }
+  )> };
 
 }
