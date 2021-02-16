@@ -31,6 +31,14 @@ const ContentsWrap = styled.div`
   margin: 0 auto;
   padding: 5vmin 0;
   width: 90%;
+  a {
+    text-decoration: none;
+    transition: 0.3s;
+    color: #2b98b0;
+    &:hover {
+      color: #54c5de;
+    }
+  }
 `
 
 const BlogPostTemplate: React.FC<
@@ -58,10 +66,10 @@ const BlogPostTemplate: React.FC<
             __html: postBody.childMarkdownRemark.html,
           }}
         />
-        <div style={{ textAlign: 'center' }}>
-          <ILink to="/">Topへ</ILink>
-        </div>
       </ContentsWrap>
+      <div style={{ textAlign: 'center' }}>
+        <ILink to="/">Topへ</ILink>
+      </div>
     </Layout>
   )
 }
