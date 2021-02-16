@@ -5975,6 +5975,7 @@ type Query_sitePluginArgs = {
   version: Maybe<StringQueryOperatorInput>;
   pluginOptions: Maybe<SitePluginPluginOptionsFilterInput>;
   nodeAPIs: Maybe<StringQueryOperatorInput>;
+  browserAPIs: Maybe<StringQueryOperatorInput>;
   ssrAPIs: Maybe<StringQueryOperatorInput>;
   pluginFilepath: Maybe<StringQueryOperatorInput>;
   packageJson: Maybe<SitePluginPackageJsonFilterInput>;
@@ -6499,7 +6500,15 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.plugins.id'
   | 'pluginCreator.pluginOptions.plugins.name'
   | 'pluginCreator.pluginOptions.plugins.version'
+  | 'pluginCreator.pluginOptions.plugins.nodeAPIs'
+  | 'pluginCreator.pluginOptions.plugins.browserAPIs'
+  | 'pluginCreator.pluginOptions.plugins.ssrAPIs'
   | 'pluginCreator.pluginOptions.plugins.pluginFilepath'
+  | 'pluginCreator.pluginOptions.offsetY'
+  | 'pluginCreator.pluginOptions.icon'
+  | 'pluginCreator.pluginOptions.className'
+  | 'pluginCreator.pluginOptions.isIconAfterHeader'
+  | 'pluginCreator.pluginOptions.elements'
   | 'pluginCreator.pluginOptions.target'
   | 'pluginCreator.pluginOptions.rel'
   | 'pluginCreator.pluginOptions.base64Width'
@@ -6520,6 +6529,7 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.isTSX'
   | 'pluginCreator.pluginOptions.jsxPragma'
   | 'pluginCreator.nodeAPIs'
+  | 'pluginCreator.browserAPIs'
   | 'pluginCreator.ssrAPIs'
   | 'pluginCreator.pluginFilepath'
   | 'pluginCreator.packageJson.name'
@@ -6581,6 +6591,7 @@ type SitePlugin = Node & {
   readonly version: Maybe<Scalars['String']>;
   readonly pluginOptions: Maybe<SitePluginPluginOptions>;
   readonly nodeAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly browserAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly ssrAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly pluginFilepath: Maybe<Scalars['String']>;
   readonly packageJson: Maybe<SitePluginPackageJson>;
@@ -6708,9 +6719,22 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.plugins.id'
   | 'pluginOptions.plugins.name'
   | 'pluginOptions.plugins.version'
+  | 'pluginOptions.plugins.pluginOptions.offsetY'
+  | 'pluginOptions.plugins.pluginOptions.icon'
+  | 'pluginOptions.plugins.pluginOptions.className'
+  | 'pluginOptions.plugins.pluginOptions.isIconAfterHeader'
+  | 'pluginOptions.plugins.pluginOptions.elements'
   | 'pluginOptions.plugins.pluginOptions.target'
   | 'pluginOptions.plugins.pluginOptions.rel'
+  | 'pluginOptions.plugins.nodeAPIs'
+  | 'pluginOptions.plugins.browserAPIs'
+  | 'pluginOptions.plugins.ssrAPIs'
   | 'pluginOptions.plugins.pluginFilepath'
+  | 'pluginOptions.offsetY'
+  | 'pluginOptions.icon'
+  | 'pluginOptions.className'
+  | 'pluginOptions.isIconAfterHeader'
+  | 'pluginOptions.elements'
   | 'pluginOptions.target'
   | 'pluginOptions.rel'
   | 'pluginOptions.base64Width'
@@ -6731,6 +6755,7 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.isTSX'
   | 'pluginOptions.jsxPragma'
   | 'nodeAPIs'
+  | 'browserAPIs'
   | 'ssrAPIs'
   | 'pluginFilepath'
   | 'packageJson.name'
@@ -6759,6 +6784,7 @@ type SitePluginFilterInput = {
   readonly version: Maybe<StringQueryOperatorInput>;
   readonly pluginOptions: Maybe<SitePluginPluginOptionsFilterInput>;
   readonly nodeAPIs: Maybe<StringQueryOperatorInput>;
+  readonly browserAPIs: Maybe<StringQueryOperatorInput>;
   readonly ssrAPIs: Maybe<StringQueryOperatorInput>;
   readonly pluginFilepath: Maybe<StringQueryOperatorInput>;
   readonly packageJson: Maybe<SitePluginPackageJsonFilterInput>;
@@ -6841,6 +6867,11 @@ type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 type SitePluginPluginOptions = {
   readonly plugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPlugins>>>;
+  readonly offsetY: Maybe<Scalars['Int']>;
+  readonly icon: Maybe<Scalars['String']>;
+  readonly className: Maybe<Scalars['String']>;
+  readonly isIconAfterHeader: Maybe<Scalars['Boolean']>;
+  readonly elements: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly target: Maybe<Scalars['String']>;
   readonly rel: Maybe<Scalars['String']>;
   readonly base64Width: Maybe<Scalars['Int']>;
@@ -6864,6 +6895,11 @@ type SitePluginPluginOptions = {
 
 type SitePluginPluginOptionsFilterInput = {
   readonly plugins: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
+  readonly offsetY: Maybe<IntQueryOperatorInput>;
+  readonly icon: Maybe<StringQueryOperatorInput>;
+  readonly className: Maybe<StringQueryOperatorInput>;
+  readonly isIconAfterHeader: Maybe<BooleanQueryOperatorInput>;
+  readonly elements: Maybe<StringQueryOperatorInput>;
   readonly target: Maybe<StringQueryOperatorInput>;
   readonly rel: Maybe<StringQueryOperatorInput>;
   readonly base64Width: Maybe<IntQueryOperatorInput>;
@@ -6891,6 +6927,9 @@ type SitePluginPluginOptionsPlugins = {
   readonly name: Maybe<Scalars['String']>;
   readonly version: Maybe<Scalars['String']>;
   readonly pluginOptions: Maybe<SitePluginPluginOptionsPluginsPluginOptions>;
+  readonly nodeAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly browserAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly ssrAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly pluginFilepath: Maybe<Scalars['String']>;
 };
 
@@ -6900,6 +6939,9 @@ type SitePluginPluginOptionsPluginsFilterInput = {
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly version: Maybe<StringQueryOperatorInput>;
   readonly pluginOptions: Maybe<SitePluginPluginOptionsPluginsPluginOptionsFilterInput>;
+  readonly nodeAPIs: Maybe<StringQueryOperatorInput>;
+  readonly browserAPIs: Maybe<StringQueryOperatorInput>;
+  readonly ssrAPIs: Maybe<StringQueryOperatorInput>;
   readonly pluginFilepath: Maybe<StringQueryOperatorInput>;
 };
 
@@ -6908,11 +6950,21 @@ type SitePluginPluginOptionsPluginsFilterListInput = {
 };
 
 type SitePluginPluginOptionsPluginsPluginOptions = {
+  readonly offsetY: Maybe<Scalars['Int']>;
+  readonly icon: Maybe<Scalars['String']>;
+  readonly className: Maybe<Scalars['String']>;
+  readonly isIconAfterHeader: Maybe<Scalars['Boolean']>;
+  readonly elements: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly target: Maybe<Scalars['String']>;
   readonly rel: Maybe<Scalars['String']>;
 };
 
 type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
+  readonly offsetY: Maybe<IntQueryOperatorInput>;
+  readonly icon: Maybe<StringQueryOperatorInput>;
+  readonly className: Maybe<StringQueryOperatorInput>;
+  readonly isIconAfterHeader: Maybe<BooleanQueryOperatorInput>;
+  readonly elements: Maybe<StringQueryOperatorInput>;
   readonly target: Maybe<StringQueryOperatorInput>;
   readonly rel: Maybe<StringQueryOperatorInput>;
 };
