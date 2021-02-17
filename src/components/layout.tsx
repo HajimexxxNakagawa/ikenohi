@@ -1,16 +1,25 @@
-import React from 'react'
+import * as React from 'react'
 import Footer from './Footer'
-import Navigation from './Header'
+import Header from './Header'
+import Menu from './Menu'
 import '../css/base.css'
 import styled from 'styled-components'
 
-const Layout: React.FC = ({ children }) => (
-  <Container>
-    <Navigation />
-    {children}
-    <Footer />
-  </Container>
-)
+const Layout: React.FC = ({ children }) => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+  return (
+    <Container>
+      <Header onToggleMenu={toggleMenu} />
+      {children}
+      <Footer />
+      {isMenuOpen && <Menu onToggleMenu={toggleMenu} />}
+    </Container>
+  )
+}
 
 export default Layout
 

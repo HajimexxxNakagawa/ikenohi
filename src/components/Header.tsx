@@ -1,18 +1,20 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { MenuProps } from '../utils/interface'
 import styled from 'styled-components'
 
-const Header = () => (
+const Header = ({ onToggleMenu }: MenuProps) => (
   <HeaderBase>
     <span>イケの日</span>
-    <Navigation>
-      <NavigationItem>
+    <MobileNav onClick={onToggleMenu}>≡</MobileNav>
+    <PCNav>
+      <PCNavItem>
         <Link to="/">Home</Link>
-      </NavigationItem>
-      <NavigationItem>
+      </PCNavItem>
+      <PCNavItem>
         <Link to="/about/">About</Link>
-      </NavigationItem>
-    </Navigation>
+      </PCNavItem>
+    </PCNav>
   </HeaderBase>
 )
 
@@ -25,7 +27,7 @@ const HeaderBase = styled.nav`
   padding: 0 2rem;
 `
 
-const Navigation = styled.ul`
+const PCNav = styled.ul`
   display: flex;
   justify-content: center;
   list-style: none;
@@ -34,13 +36,23 @@ const Navigation = styled.ul`
   height: 20vh;
   max-height: 56px;
   font-size: 1.25em;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `
 
-const NavigationItem = styled.li`
+const PCNavItem = styled.li`
   display: inline-flex;
   align-items: center;
   margin: 0 1em;
   a {
     color: currentColor;
+  }
+`
+
+const MobileNav = styled.span`
+  display: none;
+  @media (max-width: 600px) {
+    display: block;
   }
 `
