@@ -2,11 +2,17 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { MenuProps } from '../utils/interface'
 import styled from 'styled-components'
+const logo = require('../img/logo.svg')
+const menu = require('../img/menu.svg')
 
 const Header = ({ onToggleMenu }: MenuProps) => (
   <HeaderBase>
-    <span>イケの日</span>
-    <MobileNav onClick={onToggleMenu}>≡</MobileNav>
+    <Link to="/">
+      <Logo src={logo} alt="イケの日" />
+    </Link>
+    <MobileNav onClick={onToggleMenu}>
+      <MenuButton src={menu} alt="≡" />
+    </MobileNav>
     <PCNav>
       <PCNavItem>
         <Link to="/">Home</Link>
@@ -19,6 +25,16 @@ const Header = ({ onToggleMenu }: MenuProps) => (
 )
 
 export default Header
+
+const Logo = styled.img`
+  margin: 1.2rem 0;
+  width: 120px;
+`
+
+const MenuButton = styled.img`
+  margin: 1.2rem 0;
+  width: 40px;
+`
 
 const HeaderBase = styled.nav`
   display: flex;

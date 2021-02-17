@@ -16,7 +16,7 @@ const Toc = ({ headlines, path }: TocProps) => (
     </p>
     <ul>
       {headlines.map(({ value }) => (
-        <ColoredILink to={`${path}#${value}`}>
+        <ColoredILink to={`${path}#${value}`} key={value}>
           <li key={value}>{value}</li>
         </ColoredILink>
       ))}

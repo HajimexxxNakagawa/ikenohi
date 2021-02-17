@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { MenuProps } from '../utils/interface'
 import styled from 'styled-components'
+const cross = require('../img/cross.svg')
 
 const menuItems = [
   { label: 'Home', to: '/' },
@@ -9,7 +10,8 @@ const menuItems = [
 ]
 
 const Menu = ({ onToggleMenu }: MenuProps) => (
-  <MenuBase>
+  <MenuBase onClick={onToggleMenu}>
+    <CloseButton src={cross} alt="X" />
     <div style={{ textAlign: 'center' }}>
       <MenuList>
         {menuItems.map(({ label, to }) => {
@@ -40,9 +42,9 @@ const MenuBase = styled.nav`
   left: 0;
   height: 100%;
   width: 100%;
+  font-size: 2rem;
   background-color: #fff;
   animation: fadeIn 0.8s ease 0s 1 normal;
-  -webkit-animation: fadeIn 0.8s ease 0s 1 normal;
   @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -51,16 +53,16 @@ const MenuBase = styled.nav`
       opacity: 0.95;
     }
   }
-
-  @-webkit-keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 0.95;
-    }
-  }
 `
+
+const CloseButton = styled.img`
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 1.2rem;
+  width: 40px;
+`
+
 const MenuList = styled.ul`
   list-style: none;
 `

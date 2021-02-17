@@ -1,6 +1,6 @@
-export type onClickFunc = (
-  event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-) => void
+export type onClickFunc =
+  | ((event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void)
+  | undefined
 
 // Menu
 export interface MenuProps {
