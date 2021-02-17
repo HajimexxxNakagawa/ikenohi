@@ -63,14 +63,14 @@ a {
   width: 100%;
 }
 
-@media (max-width: 600px) {
-  .hero-image {
-    height: 30.9vh;
-  }
-}
-
 @media (max-width: 1024px) {
   .hero-image {
     height: 40vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-image {
+    height: 30.9vh;
   }
 }
