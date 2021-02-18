@@ -2,19 +2,18 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { PageProps } from 'gatsby'
 import get from 'lodash/get'
-import { Helmet } from 'react-helmet'
+import { SEO } from '../utils/SEO'
 import Hero from '../components/Hero'
 import Layout from '../components/Layout'
 import ArticleList from '../components/ArticleList'
 
 const Home: React.FC<PageProps<GatsbyTypes.HomeQueryQuery>> = ({ data }) => {
-  const siteTitle = get(data, 'site.siteMetadata.title')
   const posts = get(data, 'allContentfulBlogPost.edges')
 
   return (
     <Layout>
+      <SEO />
       <div style={{ background: '#fff' }}>
-        <Helmet title={siteTitle} />
         <Hero />
         <div className="wrapper">
           <h2 className="section-headline">Recent articles</h2>
@@ -29,11 +28,6 @@ export default Home
 
 export const pageQuery = graphql`
   query HomeQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {

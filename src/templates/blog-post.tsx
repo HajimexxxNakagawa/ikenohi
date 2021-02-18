@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { PageProps } from 'gatsby'
-import { Helmet } from 'react-helmet'
+import { SEO } from '../utils/SEO'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import BlogEnd from '../components/BlogEnd'
@@ -16,12 +16,18 @@ const BlogPostTemplate: React.FC<
   const postBody = get(data, 'contentfulBlogPost.body')
   const publishDate = get(data, 'contentfulBlogPost.publishDate')
   const heroImage = get(data, 'contentfulBlogPost.heroImage')
+  const description = get(data, 'contentfulBlogPost.description')
   const tags = get(data, 'contentfulBlogPost.tags')
-  const siteTitle = get(data, 'site.siteMetadata.title')
 
+  console.log(heroImage)
   return (
     <Layout>
-      <Helmet title={`${postTitle} | ${siteTitle}`} />
+      <SEO
+        title={postTitle}
+        image={heroImage.fluid.src}
+        path={location.pathname}
+        description={description.childMarkdownRemark.excerpt}
+      />
       <TitleWrap>
         <h1 style={{ marginBottom: '0' }}>{postTitle}</h1>
         <p>{publishDate}</p>
@@ -49,11 +55,6 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")
@@ -63,6 +64,11 @@ export const pageQuery = graphql`
         }
       }
       tags
+      description {
+        childMarkdownRemark {
+          excerpt
+        }
+      }
       body {
         childMarkdownRemark {
           html
