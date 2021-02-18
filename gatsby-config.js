@@ -47,6 +47,11 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'イケの日　ーイケてるケの日をはじめよう',
+    titleTemplate: `%s · Exampleタイトル`,
+    description: `毎日の暮らしに「イケてる」をもたらすモノやアイデアを紹介しています`,
+    author: `Hajime Nakagawa`,
+    url: `https://ikenohi.com`,
+    twitterUsername: `@hajixxnaka`,
   },
   pathPrefix: '/',
   plugins: [
