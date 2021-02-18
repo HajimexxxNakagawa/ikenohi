@@ -5,4 +5,4 @@
 - Contentful
 - Netlify
 
-Visit => ikenohi.netlify.com
+Visit [here](https://ikenohi.com/)
