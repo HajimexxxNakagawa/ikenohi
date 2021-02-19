@@ -6513,8 +6513,6 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.className'
   | 'pluginCreator.pluginOptions.isIconAfterHeader'
   | 'pluginCreator.pluginOptions.elements'
-  | 'pluginCreator.pluginOptions.target'
-  | 'pluginCreator.pluginOptions.rel'
   | 'pluginCreator.pluginOptions.base64Width'
   | 'pluginCreator.pluginOptions.stripMetadata'
   | 'pluginCreator.pluginOptions.defaultQuality'
@@ -6728,8 +6726,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.plugins.pluginOptions.className'
   | 'pluginOptions.plugins.pluginOptions.isIconAfterHeader'
   | 'pluginOptions.plugins.pluginOptions.elements'
-  | 'pluginOptions.plugins.pluginOptions.target'
-  | 'pluginOptions.plugins.pluginOptions.rel'
   | 'pluginOptions.plugins.nodeAPIs'
   | 'pluginOptions.plugins.browserAPIs'
   | 'pluginOptions.plugins.ssrAPIs'
@@ -6739,8 +6735,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.className'
   | 'pluginOptions.isIconAfterHeader'
   | 'pluginOptions.elements'
-  | 'pluginOptions.target'
-  | 'pluginOptions.rel'
   | 'pluginOptions.base64Width'
   | 'pluginOptions.stripMetadata'
   | 'pluginOptions.defaultQuality'
@@ -6876,8 +6870,6 @@ type SitePluginPluginOptions = {
   readonly className: Maybe<Scalars['String']>;
   readonly isIconAfterHeader: Maybe<Scalars['Boolean']>;
   readonly elements: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly target: Maybe<Scalars['String']>;
-  readonly rel: Maybe<Scalars['String']>;
   readonly base64Width: Maybe<Scalars['Int']>;
   readonly stripMetadata: Maybe<Scalars['Boolean']>;
   readonly defaultQuality: Maybe<Scalars['Int']>;
@@ -6904,8 +6896,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly className: Maybe<StringQueryOperatorInput>;
   readonly isIconAfterHeader: Maybe<BooleanQueryOperatorInput>;
   readonly elements: Maybe<StringQueryOperatorInput>;
-  readonly target: Maybe<StringQueryOperatorInput>;
-  readonly rel: Maybe<StringQueryOperatorInput>;
   readonly base64Width: Maybe<IntQueryOperatorInput>;
   readonly stripMetadata: Maybe<BooleanQueryOperatorInput>;
   readonly defaultQuality: Maybe<IntQueryOperatorInput>;
@@ -6959,8 +6949,6 @@ type SitePluginPluginOptionsPluginsPluginOptions = {
   readonly className: Maybe<Scalars['String']>;
   readonly isIconAfterHeader: Maybe<Scalars['Boolean']>;
   readonly elements: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly target: Maybe<Scalars['String']>;
-  readonly rel: Maybe<Scalars['String']>;
 };
 
 type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
@@ -6969,8 +6957,6 @@ type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   readonly className: Maybe<StringQueryOperatorInput>;
   readonly isIconAfterHeader: Maybe<BooleanQueryOperatorInput>;
   readonly elements: Maybe<StringQueryOperatorInput>;
-  readonly target: Maybe<StringQueryOperatorInput>;
-  readonly rel: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginSortInput = {

@@ -26,7 +26,8 @@ const HeroTitle = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (max-width: 800px) {
+  @media (max-width: 580px) {
     flex-direction: column;
+    font-size: 1.2rem;
   }
 `

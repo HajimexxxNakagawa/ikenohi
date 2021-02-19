@@ -60,6 +60,9 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-external-links',
+          },
+          {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
               offsetY: `10`,
@@ -67,13 +70,6 @@ module.exports = {
               className: `custom-class`,
               isIconAfterHeader: false,
               elements: [`h2`, `h3`, `h4`],
-            },
-          },
-          {
-            resolve: 'gatsby-remark-external-links',
-            options: {
-              target: '_blank',
-              rel: 'noopener noreferrer',
             },
           },
         ],
