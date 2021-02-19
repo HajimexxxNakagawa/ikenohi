@@ -4,7 +4,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const defaultImage = require('../img/Hero.svg')
+const defaultImage = require('../img/Hero.png')
 
 interface SEOProps {
   title?: string
