@@ -19,12 +19,13 @@ const BlogPostTemplate: React.FC<
   const description = get(data, 'contentfulBlogPost.description')
   const tags = get(data, 'contentfulBlogPost.tags')
 
-  console.log(heroImage)
+  const imgSrc = heroImage.fluid.srcSetWebp.split(' ')
+  const imgSrcUrl = `https:${imgSrc[0]}`
   return (
     <Layout>
       <SEO
         title={postTitle}
-        image={heroImage.fluid.src}
+        image={imgSrcUrl}
         path={location.pathname}
         description={description.childMarkdownRemark.excerpt}
       />

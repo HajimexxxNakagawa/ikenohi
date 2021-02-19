@@ -6,15 +6,16 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 const defaultImage = require('../img/Hero.png')
 
+console.log(defaultImage)
 interface SEOProps {
   title?: string
   description?: string
-  image?: any
+  image?: string
   path?: string
 }
 
 export const SEO = ({ title, description, image, path }: SEOProps) => {
-  const { site } = useStaticQuery(
+  const { site, allContentfulPerson } = useStaticQuery(
     graphql`
       query {
         site {
@@ -26,9 +27,22 @@ export const SEO = ({ title, description, image, path }: SEOProps) => {
             twitterUsername
           }
         }
+        allContentfulPerson {
+          edges {
+            node {
+              image {
+                fluid {
+                  srcWebp
+                }
+              }
+            }
+          }
+        }
       }
     `
   )
+  const imgSrcUrl =
+    'https:' + allContentfulPerson.edges[0].node.image.fluid.srcWebp
 
   const {
     defaultTitle,
@@ -40,7 +54,7 @@ export const SEO = ({ title, description, image, path }: SEOProps) => {
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: image || defaultImage,
+    image: image || imgSrcUrl,
     url: `${siteUrl}${path}`,
   }
 
