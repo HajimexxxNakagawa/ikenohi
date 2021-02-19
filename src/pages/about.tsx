@@ -1,11 +1,17 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import styled from 'styled-components'
+import { SEO } from '../utils/SEO'
 
 const About = () => (
   <Layout>
+    <SEO
+      title="About　ーイケの日"
+      description="イケの日についてと、イケの日の製作者について紹介します。"
+      path="/about"
+    />
     <ContentsWrap>
-      <h1 className="section-headline">このブログについて</h1>
+      <h1 className="section-headline">サイトについて</h1>
       <h2>イケの日でやりたいこと</h2>
       <p>
         「イケてるケの日をはじめよう」のスローガンのもと、
@@ -22,17 +28,21 @@ const About = () => (
       <p>
         このブログ自体も、読んでて「イケてる！」と思えるものにして参ります。
       </p>
-      <h2>プライバシーポリシー</h2>
+      <h2>免責事項</h2>
       <p>
         イケの日ではAmazonアソシエイトや楽天アフィリエイト、その他アフィリエイトプログラムを利用しています。
+      </p>
+
+      <p>
         また、リンク先の商品はイケの日が販売しているのではなく、各リンク先店舗が販売元となります。
         商品購入に関するトラブルに関しては、イケの日では一切の責任を負いかねますのでご了承ください。
       </p>
-      <p></p>
 
       <h1 className="section-headline">製作者について</h1>
       <h2>人物紹介</h2>
-      <p>一橋大学経済学部、23卒生です。大学の近くに一人暮らししています。</p>
+      <p>
+        一橋大学経済学部、23卒生です。大学の近くに一人暮らししています。フロントエンドエンジニアを目指して勉強中。
+      </p>
 
       <ul>
         <li>
