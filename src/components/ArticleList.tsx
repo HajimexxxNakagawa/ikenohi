@@ -1,18 +1,18 @@
 import React from 'react'
-import ArticlePreview from './ArticlePreview'
+import ArticlePreview, { ArticlePreviewProp } from './ArticlePreview'
 import styled from 'styled-components'
 
 // TODO
 interface ArticleListProps {
-  posts: any
+  posts: ArticlePreviewProp[]
 }
 
 const ArticleList = ({ posts }: ArticleListProps) => (
   <ListBase>
-    {posts.map(({ node }: any) => {
+    {posts.map(({ node }) => {
       return (
         <ArticleItem key={node.slug}>
-          <ArticlePreview article={node} />
+          <ArticlePreview node={node} />
         </ArticleItem>
       )
     })}

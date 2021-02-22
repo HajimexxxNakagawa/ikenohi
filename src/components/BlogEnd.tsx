@@ -12,7 +12,7 @@ const BlogEnd = ({ tags }: BlogEndProps) => (
     {/* share button */}
     <TagArea>
       <h3>Tag： </h3>
-      {tags && tags.map((tag) => <Tag label={tag} key={tag} />)}
+      {tags && tags.map((tag) => <Tag tag={tag} key={tag} />)}
     </TagArea>
     <p style={{ textAlign: 'center' }}>
       <ILink to="/">Homeへ</ILink>

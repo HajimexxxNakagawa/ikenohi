@@ -12,17 +12,17 @@ const TagObj = {
 export type TagType = keyof typeof TagObj
 
 export interface TagProps {
-  label: TagType
+  tag: TagType
 }
 
-const Tag = ({ label }: TagProps) => (
+const Tag = ({ tag }: TagProps) => (
   <TagBase
     style={{
-      color: `${TagObj[label].theme}`,
-      border: `2px solid ${TagObj[label].theme}`,
+      color: `${TagObj[tag].theme}`,
+      border: `2px solid ${TagObj[tag].theme}`,
     }}
   >
-    {label}
+    {tag}
   </TagBase>
 )
 

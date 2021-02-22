@@ -4,23 +4,43 @@ import Img from 'gatsby-image'
 import Tag, { TagType } from './Tag'
 import styled from 'styled-components'
 
+type ArticleNode = Pick<
+  GatsbyTypes.ContentfulBlogPost,
+  'slug' | 'heroImage' | 'title' | 'publishDate' | 'description'
+> & { tags: TagType[] }
+
+// export type ArticleNode = {
+//   slug: string
+//   heroImage: any
+//   title: string
+//   publishDate: any
+//   description: any
+//   tags: TagType[]
+// }
+
+export type ArticlePreviewProp = {
+  node: ArticleNode
+}
+
 // TODO
-const ArticlePreview = ({ article }: any) => (
-  <Card>
-    <ILink to={`/blog/${article.slug}`}>
-      <Img alt="" fluid={article.heroImage.fluid} />
-      <Title>{article.title}</Title>
-      <small>{article.publishDate}</small>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: article.description.childMarkdownRemark.html,
-        }}
-      />
-    </ILink>
-    {article.tags &&
-      article.tags.map((tag: TagType) => <Tag label={tag} key={tag} />)}
-  </Card>
-)
+const ArticlePreview = ({ node }: ArticlePreviewProp) => {
+  const { slug, heroImage, title, publishDate, description, tags } = node
+  return (
+    <Card>
+      <ILink to={`/blog/${slug}`}>
+        <Img alt="" fluid={heroImage!.fluid!} />
+        <Title>{title}</Title>
+        <small>{publishDate}</small>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: description!.childMarkdownRemark!.html!,
+          }}
+        />
+      </ILink>
+      {tags && tags.map((tag) => <Tag tag={tag} key={tag} />)}
+    </Card>
+  )
+}
 
 export default ArticlePreview
 
