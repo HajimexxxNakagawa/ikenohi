@@ -2,7 +2,6 @@ import React from 'react'
 import ArticlePreview, { ArticlePreviewProp } from './ArticlePreview'
 import styled from 'styled-components'
 
-// TODO
 interface ArticleListProps {
   posts: ArticlePreviewProp[]
 }

@@ -9,20 +9,10 @@ type ArticleNode = Pick<
   'slug' | 'heroImage' | 'title' | 'publishDate' | 'description'
 > & { tags: TagType[] }
 
-// export type ArticleNode = {
-//   slug: string
-//   heroImage: any
-//   title: string
-//   publishDate: any
-//   description: any
-//   tags: TagType[]
-// }
-
 export type ArticlePreviewProp = {
   node: ArticleNode
 }
 
-// TODO
 const ArticlePreview = ({ node }: ArticlePreviewProp) => {
   const { slug, heroImage, title, publishDate, description, tags } = node
   return (
