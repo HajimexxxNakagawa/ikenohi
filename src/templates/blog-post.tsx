@@ -47,7 +47,12 @@ const BlogPostTemplate: React.FC<
           }}
         />
       </ContentsWrap>
-      <BlogEnd tags={tags} />
+      <BlogEnd
+        tags={tags}
+        articleUrl={location.href}
+        articleTitle={postTitle}
+        quote={description.childMarkdownRemark.excerpt}
+      />
     </Layout>
   )
 }
