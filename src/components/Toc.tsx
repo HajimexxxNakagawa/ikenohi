@@ -2,7 +2,7 @@ import React from 'react'
 import { ColoredILink } from '../utils/ILink'
 import styled from 'styled-components'
 
-type Headline = { headline: string }
+type Headline = { value: string }
 
 interface TocProps {
   headlines: Headline[]
@@ -15,9 +15,9 @@ const Toc = ({ headlines, path }: TocProps) => (
       <strong>目次</strong>
     </p>
     <ul>
-      {headlines.map(({ headline }) => (
-        <ColoredILink to={`${path}#${headline}`} key={headline}>
-          <li key={headline}>{headline}</li>
+      {headlines.map(({ value }) => (
+        <ColoredILink to={`${path}#${value}`} key={value}>
+          <li key={value}>{value}</li>
         </ColoredILink>
       ))}
     </ul>
